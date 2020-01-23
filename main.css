@@ -22,15 +22,21 @@ header ul {
    justify-content: space-around;
    list-style: none;
 }
-.start-quiz, .quiz, .quiz-result {
+.quiz-result, .js-quiz, .quiz {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 400px;
+    width: 40%;
     padding: 20px 20px;
     background-color: lightgray;
 
+}
+.start-quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .quiz ul {
     list-style: none;
@@ -42,10 +48,11 @@ main {
     justify-content: center;
     align-items: center;
 }
-#paint-rollers, #wrong-answer {
+#paint-rollers, #wrong-answer , #paint-bucket {
     height: 350px;
+    
 }
-#button-start, #button-submit {
+#button-start, #button-submit, #paint-bucket {
     margin-top: 2em;
 }
 .start-quiz h2 {
