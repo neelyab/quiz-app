@@ -48,7 +48,7 @@ main {
     justify-content: center;
     align-items: center;
 }
-#paint-rollers, #wrong-answer , #paint-bucket {
+#paint-rollers, #wrong-answer , #paint-bucket, #right-answer {
     height: 350px;
     
 }
