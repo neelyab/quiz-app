@@ -1,41 +1,4 @@
-/* quiz app
--be able to start quiz
--keep track of score and questions number at the top of the page
--move through questions one at a time
--can't skip questions
--receive feedback on whether the ? is right or wrong
--move to the next question
--recieve overall score at the end of the quiz
--be able to restart the quiz
 
-
-generateQuizQuestion()
- -event listener for start/next question button
- - displays a question / answers with radio buttons
- - creates a submit answer button
-
-questionChecker()
- - event listener for submit button
- - checks to see if answer is right
- - calls display results function
-
-questionNumber() 
- -updates the qnumber variable and updates the number in the DOM
-
-scoreKeeper()
--keeps track of score
-
-displayResults()
--if else statement renders a right answer or wrong answer page
--renders a next question button
-
-startQuiz()
--resets score and question number
--displays the first question
-
-handleQuizApp()
-will call all of the functions once the page loads
-*/
 
 STORE = [
     { question: "What are the three primary colors?",
@@ -47,7 +10,7 @@ STORE = [
     correctAnswer:"green, orange, purple"
     },
     { question: "What are analagous colors?",
-    answer: ["colors directly opposite each other on the color wheel", "one color, escept different shades", "any three colors that are by side on the color wheel", "black and white"],
+    answer: ["colors directly opposite each other on the color wheel", "one color, except different shades", "any three colors that are by side on the color wheel", "black and white"],
     correctAnswer: "any three colors that are by side on the color wheel"
     },
     { question: "Warm colors are:",
@@ -75,14 +38,15 @@ function startQuiz() {
 /* begins displaying quiz questions from the STORE array until the very last question has been displayed, then calls the displayResults function */
 function generateQuizQuestion() {
     if (qNumber < STORE.length) {
-    let question =$(`<form class ="js-quiz-form" action ="/some-server" method = "post">
-    <legend class = "question">${STORE[qNumber].question}</legend>`);
+    let question =$(`<form class ="js-quiz-form">
+    <legend class = "question">${STORE[qNumber].question}</legend>
+    <ul class="radiogroup" role="radiogroup" aria-labelledby="question"></ul>`);
     let answers = STORE[qNumber].answer.map(function(answerValue, answerIndex){
-        return `<label class="answer-option"><input type="radio" name="answer" tabindex="${answerIndex+1}" value="${answerValue}" required>${answerValue}</label><br>`;
+        return `<label class="answer-option"><input type="radio" name="answer" tabindex="${answerIndex+1}" value="${answerValue}" aria-checked="false" required>${answerValue}</label><br>`;
     });
     let button = $(`<button type="submit" id ="button-submit">Submit</button></form>`)
     $('.js-quiz').append(question);
-    $('.js-quiz-form').append(answers, button);
+    $('.radiogroup').append(answers, button);
     questionNumber();
 } else {
     displayResults();
