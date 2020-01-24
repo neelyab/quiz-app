@@ -32,7 +32,7 @@ header ul {
     background-color: lightgray;
 
 }
-.start-quiz {
+.start-quiz, .js-answer {
     display: flex;
     justify-content: center;
     align-items: center;
