@@ -54,7 +54,7 @@ function generateQuizQuestion() {
 
 }
 
-/* event listener for the submit button. Then checks to see if the answer selected is correct */
+/* event listener for the submit button. Then checks to see if an input is selected, and if the answer selected is correct */
 function questionChecker(){
     $('main').on('click','#button-submit', function (event){
         if ($('input:radio').is(':checked')) {
@@ -133,7 +133,6 @@ function restartQuiz(){
      console.log('restart button clicked');
     score = 0;
     qNumber = 0;
-
     $('.js-answer').empty();
     $('.js-quiz-form').empty();
     $('.start-quiz').show();

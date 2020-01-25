@@ -1,11 +1,12 @@
-
+/* default styling */
 * {
     box-sizing: border-box;
 }
 html, body {
     font-size: 16px;
     font-family: 'Lato', sans-serif;
-    color: #1a1a1a
+    color: #1a1a1a;
+   
 
 }
 button {
@@ -45,16 +46,16 @@ main {
     align-items: center;
 }
 
-
+/* styling for javascript/jquery pages */
 .js-quiz {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     min-height: 500px;
     padding: 30px 30px;
-    background-color: #ffcccc;
+    background-color: #FFD2C8;
     border-radius: 10px;
 
 }
@@ -73,13 +74,7 @@ main {
     text-align: left;
 }
 .js-quiz-form ul button {
-
-width: 40%
-    
-}
-
-#answer-selector {
-    padding-right: 10px;
+width: 40%;    
 }
 
 .start-quiz, .js-quiz .js-answer, .js-results {
@@ -88,10 +83,9 @@ width: 40%
     align-items: center;
     flex-direction: column;
 }
-
+/* image styles */
 #paint-rollers, #wrong-answer, #paint-bucket, #right-answer {
     width: 50%;
-    min-height: 300px;
     border-radius: 5px;
     
 }
@@ -101,11 +95,19 @@ width: 40%
 
 }
 
+
 .start-quiz h2 {
     text-align: center;
 }
 
-@media only screen and (max-width: 768px){
+.js-answer p {
+ font-size: 1.2em;
+}
+.js-answer h3 {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 975px){
     .js-quiz, .quiz-result {
         width: 80%;
     }
@@ -116,4 +118,15 @@ width: 40%
     #paint-rollers, #wrong-answer, #paint-bucket, #right-answer {
         width: 75%;
     }
+}
+
+@media only screen and (max-width: 375px) {
+    .js-quiz {
+        padding: 20px 20px;
+        width: 80%;
+    }
+    .radiogroup {
+        padding: 0;
+    }
+
 }
