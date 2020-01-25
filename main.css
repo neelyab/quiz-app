@@ -1,10 +1,22 @@
+
 * {
     box-sizing: border-box;
 }
 html, body {
     font-size: 16px;
-    font-family: arial;
+    font-family: 'Lato', sans-serif;
+    color: #1a1a1a
 
+}
+button {
+    background-color: whitesmoke;
+    border: solid 1px whitesmoke;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+button:hover {
+    background-color: darkgray;
 }
 h1 {
     text-align: center;
@@ -20,27 +32,11 @@ p {
 header ul {
    display: flex;
    justify-content: space-around;
+   align-items:center;
    list-style: none;
-}
-.quiz-result, .js-quiz, .quiz {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 40%;
-    padding: 20px 20px;
-    background-color: lightgray;
-
-}
-.start-quiz, .js-answer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.quiz ul {
-    list-style: none;
-    padding: 0;
+   padding-left: 200px;
+   padding-right: 250px;
+   font-size: 1.5em;
 }
 
 main {
@@ -48,13 +44,76 @@ main {
     justify-content: center;
     align-items: center;
 }
-#paint-rollers, #wrong-answer, #paint-bucket, #right-answer {
-    height: 350px;
+
+
+.js-quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    min-height: 500px;
+    padding: 30px 30px;
+    background-color: #ffcccc;
+    border-radius: 10px;
+
+}
+.js-quiz-form {
+    font-size: 1.3em;
+}
+.js-quiz-form legend {
+    text-align: left;
+}
+
+.js-quiz-form ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 500px;
+    text-align: left;
+}
+.js-quiz-form ul button {
+
+width: 40%
     
 }
+
+#answer-selector {
+    padding-right: 10px;
+}
+
+.start-quiz, .js-quiz .js-answer, .js-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#paint-rollers, #wrong-answer, #paint-bucket, #right-answer {
+    width: 50%;
+    min-height: 300px;
+    border-radius: 5px;
+    
+}
+
 #button-start, #button-submit, #paint-bucket {
     margin-top: 2em;
+
 }
+
 .start-quiz h2 {
     text-align: center;
+}
+
+@media only screen and (max-width: 768px){
+    .js-quiz, .quiz-result {
+        width: 80%;
+    }
+    header ul {
+        font-size: 1.2em;
+        padding: 0;
+    }
+    #paint-rollers, #wrong-answer, #paint-bucket, #right-answer {
+        width: 75%;
+    }
 }

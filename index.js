@@ -42,7 +42,7 @@ function generateQuizQuestion() {
     <legend class = "question">${STORE[qNumber].question}</legend>
     <ul class="radiogroup" role="radiogroup" aria-labelledby="question"></ul>`);
     let answers = STORE[qNumber].answer.map(function(answerValue, answerIndex){
-        return `<label class="answer-option"><input type="radio" name="answer" tabindex="${answerIndex+1}" value="${answerValue}" aria-checked="false" required>${answerValue}</label><br>`;
+        return `<label for="${answerValue}"><input type="radio" id="${answerValue}" name="answer" tabindex="${answerIndex}" value="${answerValue}" aria-checked="false" required>${answerValue}</label><br>`;
     });
     let button = $(`<button type="submit" id ="button-submit">Submit</button></form>`)
     $('.js-quiz').append(question);
@@ -57,6 +57,7 @@ function generateQuizQuestion() {
 /* event listener for the submit button. Then checks to see if the answer selected is correct */
 function questionChecker(){
     $('main').on('click','#button-submit', function (event){
+        if ($('input:radio').is(':checked')) {
         event.preventDefault();
         let selectedAnswer= $("input[name=answer]:checked").val();
         console.log(selectedAnswer);
@@ -65,6 +66,9 @@ function questionChecker(){
         } else {
                 wrongAnswer();
             }
+        }else {
+            alert('Please select an answer.')
+        }
     });
 }
 
@@ -97,8 +101,8 @@ function wrongAnswer() {
     $('.js-answer').append(`<h2>That answer is not quite right...</h2>
         <img src="img/wrong-answer.jpg" alt="child with paint all over face" id="wrong-answer"/>
         <h3>The correct answer is:</h3>
-        <P><span class="correct-answer">${STORE[qNumber].correctAnswer}</span></P>
-        <button type="button" id ="button-next">Next Question</button>`).show();
+        <p><span class="correct-answer">${STORE[qNumber].correctAnswer}</span></p>
+        <button type="button" id ="button-next">Next</button>`).show();
 }
 
 /* event listener for the next question button, calls the generateQuizQuestion function to display the next question */
@@ -120,13 +124,29 @@ function displayResults(){
     <img id="paint-bucket" alt="red paint bucket" src = "img/paint-bucket.jpg"/>
     <h3>${finalScore}%</h3>
     <p>You got <span class="right-answers">${score} </span>out of 5 questions right.</p>
-    <button type="button" id ="button-restart">Restart Quiz</button>`)
+    <button type="button" id ="button-restart">Start a New Quiz</button>`)
+}
+
+function restartQuiz(){
+    console.log('restart quiz ran');
+ $('main').on('click', '#button-restart', function(event){
+     console.log('restart button clicked');
+    score = 0;
+    qNumber = 0;
+
+    $('.js-answer').empty();
+    $('.js-quiz-form').empty();
+    $('.start-quiz').show();
+    $('header').find('#score').text(`${score}/5`);
+    $('header').find('#question-number').text(`${qNumber}`);
+ });
 }
 
 function handleQuizApp(){
     startQuiz();
     questionChecker();
     nextQuestion();
+    restartQuiz();
 }
 
 /* calls the handleQuizApp to activate functions with event listeners */
