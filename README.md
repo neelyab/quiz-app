@@ -8,7 +8,7 @@ This app quizzes the user on color theory and gives feedback on correct and inco
 # Screenshots
 ![home screen](img/home-screen.png)
 ![question screen](img/question-screen.png)
-![results section](img/results=screen.png)
+![results section](img/results-screen.png)
 
 # Technology Used
 
